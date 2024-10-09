@@ -16,8 +16,13 @@ public class NoteService {
     /**
      * добавление заметки
      */
-    public Note addNote(Note note){
-        return noteRepository.save(note);
+    public Note addNote(Note newNote){
+        Optional<Note> optionalNote = noteRepository.findById(newNote.getId());
+        if (optionalNote.isPresent()) {
+            throw new IllegalArgumentException("Заметка с таким ID уже существует");
+        } else {
+            return noteRepository.save(optionalNote.get());
+        }
     }
     /**
      * Просмотр всех заметок
