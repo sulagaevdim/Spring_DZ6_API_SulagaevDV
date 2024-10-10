@@ -1,0 +1,1 @@
+insert into notes (title, content, date_create) values ('222', '222', CURRENT_DATE);
