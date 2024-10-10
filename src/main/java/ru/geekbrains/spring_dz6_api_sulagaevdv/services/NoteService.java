@@ -17,12 +17,13 @@ public class NoteService {
      * добавление заметки
      */
     public Note addNote(Note newNote){
-        Optional<Note> optionalNote = noteRepository.findById(newNote.getId());
-        if (optionalNote.isPresent()) {
-            throw new IllegalArgumentException("Заметка с таким ID уже существует");
-        } else {
-            return noteRepository.save(optionalNote.get());
-        }
+        return noteRepository.save(newNote);
+//        Optional<Note> optionalNote = noteRepository.findById(newNote.getId());
+//        if (optionalNote.isPresent()) {
+//            throw new IllegalArgumentException("Заметка с таким ID уже существует");
+//        } else {
+//            return noteRepository.save(optionalNote.get());
+//        }
     }
     /**
      * Просмотр всех заметок
@@ -39,7 +40,6 @@ public class NoteService {
             Note note = optionalNote.get();
             note.setTitle(newNote.getTitle());
             note.setContent(newNote.getContent());
-            note.setDate_create(LocalDate.now());
             return noteRepository.save(note);
         }else {
             throw new IllegalArgumentException("Note not found with ID: " + newNote.getId());

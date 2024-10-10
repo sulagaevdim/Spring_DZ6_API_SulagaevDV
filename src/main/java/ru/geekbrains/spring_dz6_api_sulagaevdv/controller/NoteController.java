@@ -26,7 +26,7 @@ public class NoteController {
      */
     @PostMapping
     public ResponseEntity<Note> addNote(@RequestBody Note note){
-        return new ResponseEntity<>(noteService.addNote(note), HttpStatus.OK);
+        return new ResponseEntity<>(noteService.addNote(note), HttpStatus.CREATED);
     }
     /**
      * изменение заметки
