@@ -1,1 +1,0 @@
-insert into notes (title, content, date_create) values ('Как покормить кота', 'Достаешь вискас, накладываешь в миску, наслаждаешься мурчанием котика', CURRENT_DATE);
